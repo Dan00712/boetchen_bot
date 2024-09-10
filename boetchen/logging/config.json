@@ -1,0 +1,33 @@
+{
+    "version": 1,
+    "formatters": {
+        "standard": {
+            "class": "logging.Formatter",
+            "format": "%(asctime)s\t%(levelname)s\t%(filename)s\t%(message)s",
+            "datefmt": "%y-%m-%d: %H:%M:%S"
+        }
+    },
+
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "formatter": "standard",
+            "stream": "ext://sys.stdout"
+        },
+        "file": {  
+            "class": "logging.handlers.RotatingFileHandler",
+            "formatter": "standard",
+            "level": "INFO",
+            "filename": "logs/highroller.log",
+            "maxBytes": 10000,
+            "backupCount": 3
+        }
+    },
+    "loggers" : {
+        "root": {  
+            "handlers": ["console", "file"],
+            "level": "DEBUG",
+            "propagate": false
+        }
+    }
+}

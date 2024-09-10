@@ -1,0 +1,25 @@
+
+[build-system]
+requires=["setuptools", "setuptools-scm"]
+
+[project]
+name="highroller"
+authors=[
+    {name="daniel St.", email="dan.stonewall@gmail.com"}
+]
+dynamic=["dependencies", "version", "description"]
+
+[project.scripts]
+highroller_bot="highroller.__main__:main"
+
+
+[tool.setuptools.packages.find]
+where=["highroller", "logging"]
+
+[tool.setuptools.dynamic]
+version={attr ="highroller.__version__"}
+description={file=["README.md"]}
+dependencies={file=["requirements.txt"]}
+
+
+
