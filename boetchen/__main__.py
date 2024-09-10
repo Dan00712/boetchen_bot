@@ -5,12 +5,12 @@ import dotenv
 import discord
 from discord.ext import commands
 
-import highroller.logging
-import highroller.bot_manager as bm
+import boetchen.logging
+import boetchen.bot_manager as bm
 
-highroller.logging.load_config()
+boetchen.logging.load_config()
 
-import highroller.dice
+#import boetchen.date_poller
 
 logger = logging.getLogger(__name__)
 
@@ -38,14 +38,14 @@ async def on_ready():
 
 
 @bot.command()
-async def sync_highroller(ctx):
+async def sync_boetchen(ctx):
     logger.debug("syncing cmds...")
     await bot.tree.sync()
     logger.debug("synced cmds")
 
 
 logger.debug("registering commands")
-highroller.dice.register_commands()
+#boetchen.date_poller.register_commands()
 
 logger.info("registered additional commands")
 
